@@ -1,0 +1,2 @@
+ROW_COUNT = 6
+COL_COUNT = 7
