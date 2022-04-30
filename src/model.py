@@ -9,7 +9,7 @@ class Model:
         self.moveCount = 0
 
     #Returns the board
-    def getBoard(self):
+    def getBoard(self) -> list[list[int]]:
         return self.board
 
     #Returns true if a one of the players has 4 pieces vertically, horizontally, or diagonally.
@@ -55,9 +55,9 @@ class Model:
     #Checking if row is free
     #Params: Board - the game board, colChoice - users selected col , and amount of rows
     #Returns: Returns the row number if valid by checking each row in that col and seeing if there is an open space indicated by a 0
-    def checkRow(self, board ,colChoice):
+    def checkRow(self ,colChoice):
         for rowNum in range(const.ROW_COUNT):
-            if board[rowNum][colChoice] == 0:
+            if self.board[rowNum][colChoice] == 0:
                 return rowNum
     #Params: colChoice - user selected col
     #Returns: Checks that user inputs a valid row# then checks if the board is full, then if there is a winner, otherwise it changes player and returns True
@@ -65,13 +65,13 @@ class Model:
 
         #Makes sure the column is valid
         try:
-            row = self.checkRow(self.getBoard(), colChoice)
-            self.getBoard()[row][colChoice] = self.playerValue
+            row = self.checkRow(colChoice)
+            self.board[row][colChoice] = self.playerValue
             self.moveCount += 1
 
             if self.moveCount == 43:
                 print("No Winner")
-
+                return False
             if self.winnerExists():
                 self.endGame()
                 return False

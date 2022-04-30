@@ -8,7 +8,7 @@ class View:
 
     # Params: Message - takes in the user input message
     # Return: returns the userinput as a string
-    def getUserInput(self, message):
+    def getUserInput(self, message: str) -> str:
         userInput = input(message)
         return userInput
 
