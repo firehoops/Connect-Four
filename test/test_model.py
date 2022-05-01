@@ -1,8 +1,6 @@
-import pytest
-import unittest
-import mocker
-from unittest.mock import patch
 from src.model import Model
+from pytest_mock import mocker
+import pytest
 
 model = Model()
 
@@ -29,10 +27,41 @@ def test_make_to_many_moves() -> None:
     assert model.makeMove(0) is False
 
 
-def test_make_moves_winner() -> None:
-    model.moveCount = 0
-    mocker.patch("model.winnerExists", return_value=True)
-    end = mocker.patch("model.endGame")
+def test_winner_exists_horizontal() -> None:
+    model.board[0][0] = 1
+    model.board[0][1] = 1
+    model.board[0][2] = 1
+    model.board[0][3] = 1
 
-    assert model.makeMove(0) is False
-    end.assert_called_once()
+    assert model.winnerExists() is True
+
+# Reset board
+model.board = [[0] * 7 for r in range(6)]
+
+def test_winner_exists_vertical() -> None:
+    model.board[0][0] = 1
+    model.board[1][0] = 1
+    model.board[2][0] = 1
+    model.board[3][0] = 1
+
+    assert model.winnerExists() is True
+
+model.board = [[0] * 7 for r in range(6)]
+
+def test_winner_exists_diagonal() -> None:
+    model.board[0][0] = 1
+    model.board[1][1] = 1
+    model.board[2][2] = 1
+    model.board[3][3] = 1
+
+    assert model.winnerExists() is True
+
+model.board = [[0] * 7 for r in range(6)]
+
+def test_winner_exists_diagonal() -> None:
+    model.board[0][3] = 1
+    model.board[1][2] = 1
+    model.board[2][1] = 1
+    model.board[3][0] = 1
+
+    assert model.winnerExists() is True

@@ -1,4 +1,4 @@
-import const
+from src import const
 import time
 
 #Handle Logic

@@ -2,7 +2,7 @@ from tkinter import *
 import tkinter.font
 import tkinter.messagebox
 import time
-import const
+from src import const
 
 
 class Controller:
@@ -28,7 +28,7 @@ class Controller:
         self.view = view
         self.model = model
         # Starting the game
-        option = self.view.getUserInput("Type text or gui for your version of Connect Four\n")
+        option = self.view.getUserInput()
         if option.lower() == "gui":
             self.gui()
         else:

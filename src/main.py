@@ -1,7 +1,7 @@
 from tkinter import *
-from controller import Controller
-from view import View
-from model import Model
+from src.controller import Controller
+from src.view import View
+from src.model import Model
 
 
 if __name__ == "__main__":

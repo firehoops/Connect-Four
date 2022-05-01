@@ -9,6 +9,13 @@ The game currently only supports switching from gui -> text view mid game not vi
 
 ## Starting the app
 
-``` 
+```
+export PYTHONPATH=./ 
 python src/main.py
+```
+
+## Unit Tests
+
+``` 
+pytest . -vv
 ```

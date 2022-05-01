@@ -1,6 +1,6 @@
 """Text-Based and GUI"""
 
-import const
+from src import const
 
 class View:
     def __init__(self):
@@ -8,8 +8,8 @@ class View:
 
     # Params: Message - takes in the user input message
     # Return: returns the userinput as a string
-    def getUserInput(self, message: str) -> str:
-        userInput = input(message)
+    def getUserInput(self) -> str:
+        userInput = input("Type text or gui for your version of Connect Four\n")
         return userInput
 
     """
