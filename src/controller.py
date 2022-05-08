@@ -45,23 +45,22 @@ class Controller:
         self.buttonFrame.grid(row=8, column=0, columnspan=7)
         self.playerScoreFrame.grid(row=9, column=0, columnspan=7)
         self.bottomFrame.grid(row=10, column=0, columnspan=7)
-        colTracker = [*range(const.COL_COUNT)]
 
         # Add buttons to board
         Button(self.buttonFrame, text="Row 1", relief="groove", width=14, command=lambda: \
-            self.addPiece(colTracker[0])).grid(row=8, column=0, padx=3)
+            self.addPiece(0)).grid(row=8, column=0, padx=3)
         Button(self.buttonFrame, text="Row 2", relief="groove", width=14, command=lambda: \
-            self.addPiece(colTracker[1])).grid(row=8, column=1, padx=3)
+            self.addPiece(1)).grid(row=8, column=1, padx=3)
         Button(self.buttonFrame, text="Row 3", relief="groove", width=14, command=lambda: \
-            self.addPiece(colTracker[2])).grid(row=8, column=2, padx=3)
+            self.addPiece(2)).grid(row=8, column=2, padx=3)
         Button(self.buttonFrame, text="Row 4", relief="groove", width=14, command=lambda: \
-            self.addPiece(colTracker[3])).grid(row=8, column=3, padx=3)
+            self.addPiece(3)).grid(row=8, column=3, padx=3)
         Button(self.buttonFrame, text="Row 5", relief="groove", width=14, command=lambda: \
-            self.addPiece(colTracker[4])).grid(row=8, column=4, padx=3)
+            self.addPiece(4)).grid(row=8, column=4, padx=3)
         Button(self.buttonFrame, text="Row 6", relief="groove", width=14,command=lambda: \
-            self.addPiece(colTracker[5])).grid(row=8, column=5, padx=3)
+            self.addPiece(5)).grid(row=8, column=5, padx=3)
         Button(self.buttonFrame, text="Row 7", relief="groove", width=14, command=lambda: \
-            self.addPiece(colTracker[6])).grid(row=8, column=6, padx=3)
+            self.addPiece(6)).grid(row=8, column=6, padx=3)
 
 
         Button(self.bottomFrame, text="Exit", relief="groove", width=15, command=lambda: self.quit()).grid(row=10, column=2, pady = 30, padx = 15)
