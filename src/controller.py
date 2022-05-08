@@ -35,7 +35,7 @@ class Controller:
             self.text_view()
     # Creates the gui
     # Returns: Creates a gui by adding frames and buttons to the self.root window
-    def gui(self):
+    def gui(self) -> None:
         header = tkinter.font.Font(size=20, weight=tkinter.font.BOLD)
         Label(self.root, text="Connect Four", anchor=N, font=header).grid(row=0, column=2, columnspan=3)
 
@@ -47,28 +47,29 @@ class Controller:
         self.bottomFrame.grid(row=10, column=0, columnspan=7)
         colTracker = [*range(const.COL_COUNT)]
 
-        Button(self.buttonFrame, text="Row 1", relief = "groove", width= 12,command=lambda: \
-            self.addPiece(colTracker[0])).grid(row=8, column=0, padx = 3)
-        Button(self.buttonFrame, text="Row 2", relief = "groove",width= 12,command=lambda: \
-            self.addPiece(colTracker[1])).grid(row=8, column=1, padx =3)
-        Button(self.buttonFrame, text="Row 3", relief = "groove",width= 12,command=lambda: \
-            self.addPiece(colTracker[2])).grid(row=8, column=2, padx =3)
-        Button(self.buttonFrame, text="Row 4", relief = "groove",width= 12,command=lambda: \
-            self.addPiece(colTracker[3])).grid(row=8, column=3, padx =3)
-        Button(self.buttonFrame, text="Row 5", relief = "groove",width= 12,command=lambda: \
-            self.addPiece(colTracker[4])).grid(row=8, column=4, padx =3)
-        Button(self.buttonFrame, text="Row 6", relief = "groove",width= 12,command=lambda: \
-            self.addPiece(colTracker[5])).grid(row=8, column=5, padx =3)
-        Button(self.buttonFrame, text="Row 7", relief = "groove",width= 12,command=lambda: \
-            self.addPiece(colTracker[6])).grid(row=8, column=6, padx =3)
+        # Add buttons to board
+        Button(self.buttonFrame, text="Row 1", relief="groove", width=14, command=lambda: \
+            self.addPiece(colTracker[0])).grid(row=8, column=0, padx=3)
+        Button(self.buttonFrame, text="Row 2", relief="groove", width=14, command=lambda: \
+            self.addPiece(colTracker[1])).grid(row=8, column=1, padx=3)
+        Button(self.buttonFrame, text="Row 3", relief="groove", width=14, command=lambda: \
+            self.addPiece(colTracker[2])).grid(row=8, column=2, padx=3)
+        Button(self.buttonFrame, text="Row 4", relief="groove", width=14, command=lambda: \
+            self.addPiece(colTracker[3])).grid(row=8, column=3, padx=3)
+        Button(self.buttonFrame, text="Row 5", relief="groove", width=14, command=lambda: \
+            self.addPiece(colTracker[4])).grid(row=8, column=4, padx=3)
+        Button(self.buttonFrame, text="Row 6", relief="groove", width=14,command=lambda: \
+            self.addPiece(colTracker[5])).grid(row=8, column=5, padx=3)
+        Button(self.buttonFrame, text="Row 7", relief="groove", width=14, command=lambda: \
+            self.addPiece(colTracker[6])).grid(row=8, column=6, padx=3)
 
 
-        Button(self.bottomFrame, text="Exit", relief = "groove",width=15,command=lambda: self.quit()).grid(row=10, column=2, pady = 30, padx = 15)
-        Button(self.bottomFrame, text="Switch views", relief = "groove",width= 15,command=lambda: self.switchToText()).grid(row=10,column=4)
+        Button(self.bottomFrame, text="Exit", relief="groove", width=15, command=lambda: self.quit()).grid(row=10, column=2, pady = 30, padx = 15)
+        Button(self.bottomFrame, text="Switch views", relief="groove", width= 15, command=lambda: self.switchToText()).grid(row=10, column=4)
         
 
     #Returns: Runs the text self.view of the game and gets the user input and continues the game based on their choice.
-    def text_view(self):
+    def text_view(self) -> None:
         run = True
         #Game Loop
         while run:
@@ -100,7 +101,7 @@ class Controller:
     #Adds a piece to the board
     #Params: col - user selected col
     #Returns: adds a piece to the canvas as well as adding it to the game board to track the text self.view and keep game logic
-    def addPiece(self, col):
+    def addPiece(self, col) -> None:
         #Starting coord for row 1 , x0 = 0 , y0 = 500 , x1 = 100 , y1= 600
         
         self.track_moves.append(self.col_to_coords[col])
@@ -118,18 +119,18 @@ class Controller:
 
     #Switches the veiw from the GUI to the text self.view
     #Returns: Closes the GUI and runs the text self.view
-    def switchToText(self):
+    def switchToText(self) -> None:
         self.root.destroy()
         self.text_view()
     
     #Switches the veiw from the GUI to the text self.view
     #Returns: Closes the GUI and runs the text self.view
-    def switchToGui(self):
+    def switchToGui(self) -> None:
         self.root.update()
         self.root.deiconify()
 
 
     # Closes the GUI
     # Returns: destroys the self.root window
-    def quit(self):
+    def quit(self) -> None:
         self.root.quit()

@@ -15,7 +15,7 @@ class View:
     """
     Params: game_board
     Result: prints out the gameboard"""
-    def displayBoard(self,board):
+    def displayBoard(self,board) -> None:
         printBoard = ""
 
         # Reverse board for printing
